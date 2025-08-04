@@ -21,6 +21,7 @@ class LimitedEDTtest {
         "true, false, false, false, true, false, 250",
         "true, false, false, false, false, true, 100",
         "true, false, false, false, false, false, 150",
+        
         "false, true, false, true, true, true, 500",
         "false, true, false, true, true, false, 550",
         "false, true, false, true, false, true, 400",
@@ -29,6 +30,7 @@ class LimitedEDTtest {
         "false, true, false, false, true, false, 450",
         "false, true, false, false, false, true, 300",
         "false, true, false, false, false, false, 350",
+        
         "false, false, true, true, true, true, 600",
         "false, false, true, true, true, false, 650",
         "false, false, true, true, false, true, 500",
@@ -37,13 +39,14 @@ class LimitedEDTtest {
         "false, false, true, false, true, false, 550",
         "false, false, true, false, false, true, 400",
         "false, false, true, false, false, false, 450",
+        
         "true, true, false, false, false, false, 0",
         "false, false, false, false, false, false, 0",
         "false, true, true, false, false, false, 0",
-        "true, false, true, false, false, false, 0",
+        "true, false, true, false, false, false, 0"
 
     })
-    void Limted_EDT_Test(boolean standard, boolean premium, boolean family, boolean offline_watching, boolean live_service, boolean discount,double totalPrice) {
+    void Limted_EDT_Test(boolean standard, boolean premium, boolean family, boolean offline_watching, boolean live_service, boolean discount,double ExpectedPrice) {
 
         TVPackage selected = null;
 
@@ -56,6 +59,6 @@ class LimitedEDTtest {
         }
 
         Tvplan = new TVPlan(offline_watching, live_service, discount);
-        assertEquals(totalPrice, Tvplan.pricePerMonth(selected));
+        assertEquals(ExpectedPrice, Tvplan.pricePerMonth(selected));
     }
 }
